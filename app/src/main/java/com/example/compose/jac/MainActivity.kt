@@ -12,7 +12,8 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            MessageCard("user")
+            MessageCard("user 1")
+            MessageCard("user 2")
         }
     }
 }
