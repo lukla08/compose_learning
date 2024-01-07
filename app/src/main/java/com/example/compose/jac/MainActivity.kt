@@ -5,14 +5,17 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -28,9 +31,10 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             MaterialTheme {
-
+                Surface(modifier = Modifier.fillMaxWidth()) {
+                    MessageCard(Message("auth1", "body1"))
+                }
             }
-            MessageCard(Message("auth1", "body1"))
         }
     }
 }
@@ -47,7 +51,7 @@ fun MessageCard(msg : Message) {
                 .size(33.dp)
                 .clip(CircleShape)
         )
-        Spacer(modifier = Modifier.width(8.dp))
+        Spacer(modifier = Modifier.width(18.dp).border(16.dp, MaterialTheme.colorScheme.primary, CircleShape))
         Column {
             Text(text = "Hello ${msg.author} ")
             Text(text = "Hello ${msg.body} ")
